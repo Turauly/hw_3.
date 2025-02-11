@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>🗑️ {{ todo.title }}-ны өшіру</h2>
+<p>Бұл Todo-ны өшіруге сенімдісіз бе?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Иә, өшіру</button>
+</form>
+<a href="{% url 'todo_list' %}">🔙 Артқа</a>
+{% endblock %}

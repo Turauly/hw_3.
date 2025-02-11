@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Todo Тізімі</h2>
+<a href="{% url 'todo_create' %}">+ Жаңа Todo қосу</a>
+<ul>
+    {% for todo in todos %}
+        <li>
+            <a href="{% url 'todo_detail' todo.id %}">{{ todo.title }}</a>
+            ({{ todo.due_date }}) - {% if todo.status %}✅ Аяқталған {% else %}⏳ Орындау керек{% endif %}
+            <a href="{% url 'todo_update' todo.id %}">✏️</a>
+            <a href="{% url 'todo_delete' todo.id %}">🗑️</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

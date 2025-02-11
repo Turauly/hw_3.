@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ todo.title }}</h2>
+<p>{{ todo.description }}</p>
+<p>Аяқтау күні: {{ todo.due_date }}</p>
+<p>Статус: {% if todo.status %}✅ Аяқталған{% else %}⏳ Орындау керек{% endif %}</p>
+
+<a href="{% url 'todo_update' todo.id %}">✏️ Өзгерту</a>
+<a href="{% url 'todo_delete' todo.id %}">🗑️ Өшіру</a>
+<a href="{% url 'todo_list' %}">🔙 Артқа</a>
+{% endblock %}

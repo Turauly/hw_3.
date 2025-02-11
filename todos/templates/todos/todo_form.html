@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{% if form.instance.pk %}Todo-ны өзгерту{% else %}Жаңа Todo қосу{% endif %}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">💾 Сақтау</button>
+</form>
+<a href="{% url 'todo_list' %}">🔙 Артқа</a>
+{% endblock %}
